@@ -23,32 +23,32 @@ const listAll = async (_req, res) => {
       .leftJoin("keywords", "question_keywords.keyword_id", "keywords.id")
       .leftJoin("question_parts", "questions.id", "question_parts.question_id");
 
-    const questionMap = new Map();
+    // const questionMap = new Map();
 
-    rawQuestions.forEach((row) => {
-      if (!questionMap.has(row.id)) {
-        questionMap.set(row.id, {
-          id: row.id,
-          subject: row.subject,
-          unit: row.unit,
-          question_type: row.question_type,
-          question: row.question,
-          keywords: new Set(),
-          parts: {},
-        });
-      }
+    // rawQuestions.forEach((row) => {
+    //   if (!questionMap.has(row.id)) {
+    //     questionMap.set(row.id, {
+    //       id: row.id,
+    //       subject: row.subject,
+    //       unit: row.unit,
+    //       question_type: row.question_type,
+    //       question: row.question,
+    //       keywords: new Set(),
+    //       parts: {},
+    //     });
+    //   }
 
-      const question = questionMap.get(row.id);
-      if (row.keyword) question.keywords.add(row.keyword);
-      if (row.part_label && row.part_text) {
-        question.parts[row.part_label] = row.part_text;
-      }
-    });
+    //   const question = questionMap.get(row.id);
+    //   if (row.keyword) question.keywords.add(row.keyword);
+    //   if (row.part_label && row.part_text) {
+    //     question.parts[row.part_label] = row.part_text;
+    //   }
+    // });
 
-    const questionData = Array.from(questionMap.values()).map((question) => ({
-      ...question,
-      keywords: Array.from(question.keywords), // Convert Set to Array
-    }));
+    // const questionData = Array.from(questionMap.values()).map((question) => ({
+    //   ...question,
+    //   keywords: Array.from(question.keywords), // Convert Set to Array
+    // }));
 
     res.status(200).json(questionData);
   } catch (err) {
