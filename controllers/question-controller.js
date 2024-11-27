@@ -4,14 +4,16 @@ const knex = initKnex(configuration);
 
 const listAll = async (_req, res) => {
   try {
-    const allQuestions = await knex("questions")
+    const rawQuestions = await knex("questions")
       .select(
         "questions.id",
         "questions.subject",
         "questions.unit",
         "questions.question_type",
         "questions.question",
-        knex.raw("JSON_ARRAYAGG(keywords.keyword) AS keywords")
+        "keywords.keyword",
+        "question_parts.part_label",
+        "question_parts.part_text"
       )
       .leftJoin(
         "question_keywords",
@@ -19,20 +21,38 @@ const listAll = async (_req, res) => {
         "question_keywords.question_id"
       )
       .leftJoin("keywords", "question_keywords.keyword_id", "keywords.id")
-      .groupBy("questions.id");
+      .leftJoin("question_parts", "questions.id", "question_parts.question_id");
 
-    const questionData = allQuestions.map((question) => ({
-      id: question.id,
-      subject: question.subject,
-      unit: question.unit,
-      question_type: question.question_type,
-      question: question.question,
-      keywords: question.keywords || [],
+    const questionMap = new Map();
+
+    rawQuestions.forEach((row) => {
+      if (!questionMap.has(row.id)) {
+        questionMap.set(row.id, {
+          id: row.id,
+          subject: row.subject,
+          unit: row.unit,
+          question_type: row.question_type,
+          question: row.question,
+          keywords: new Set(),
+          parts: {},
+        });
+      }
+
+      const question = questionMap.get(row.id);
+      if (row.keyword) question.keywords.add(row.keyword);
+      if (row.part_label && row.part_text) {
+        question.parts[row.part_label] = row.part_text;
+      }
+    });
+
+    const questionData = Array.from(questionMap.values()).map((question) => ({
+      ...question,
+      keywords: Array.from(question.keywords), // Convert Set to Array
     }));
 
     res.status(200).json(questionData);
   } catch (err) {
-    res.status(500).send(`Server error retrieving questions`);
+    res.status(500).send("Server error retrieving questions");
     console.error("Error getting list of all questions:", err);
   }
 };
