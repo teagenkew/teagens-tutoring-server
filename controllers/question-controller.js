@@ -14,6 +14,7 @@ const listAll = async (_req, res) => {
         "keywords.keyword",
         "question_parts.part_label",
         "question_parts.part_text",
+        "question_parts.placeholder",
         "answers.answer",
         "answers.is_correct"
       )
@@ -30,7 +31,6 @@ const listAll = async (_req, res) => {
         const result = [];
         for (const row of rows) {
           const existingIndex = result.findIndex((item) => item.id === row.id);
-          console.log(existingIndex);
           if (existingIndex === -1) {
             result.push({
               id: row.id,
@@ -42,12 +42,21 @@ const listAll = async (_req, res) => {
               parts: {
                 [row.part_label]: row.part_text,
               },
+              answerPlaceholders: {
+                [row.part_label]: row.placeholder,
+              },
+              answers: {
+                [row.part_label]: row.answer,
+              },
             });
           } else {
             if (!result[existingIndex].keywords.includes(row.keyword)) {
               result[existingIndex].keywords.push(row.keyword);
             }
             result[existingIndex].parts[row.part_label] = row.part_text;
+            result[existingIndex].answers[row.part_label] = row.answer;
+            result[existingIndex].answerPlaceholders[row.part_label] =
+              row.placeholder;
           }
         }
         res.status(200).json(result);
@@ -60,6 +69,7 @@ const listAll = async (_req, res) => {
 
 const listFromKeyword = async (req, res) => {
   const { keyword } = req.params;
+  
   try {
     await knex("questions")
       .select(
@@ -71,6 +81,7 @@ const listFromKeyword = async (req, res) => {
         "keywords.keyword",
         "question_parts.part_label",
         "question_parts.part_text",
+        "question_parts.placeholder",
         "answers.answer",
         "answers.is_correct"
       )
@@ -88,7 +99,6 @@ const listFromKeyword = async (req, res) => {
         const result = [];
         for (const row of rows) {
           const existingIndex = result.findIndex((item) => item.id === row.id);
-          console.log(existingIndex);
           if (existingIndex === -1) {
             result.push({
               id: row.id,
@@ -100,12 +110,21 @@ const listFromKeyword = async (req, res) => {
               parts: {
                 [row.part_label]: row.part_text,
               },
+              answerPlaceholders: {
+                [row.part_label]: row.placeholder,
+              },
+              answers: {
+                [row.part_label]: row.answer,
+              },
             });
           } else {
             if (!result[existingIndex].keywords.includes(row.keyword)) {
               result[existingIndex].keywords.push(row.keyword);
             }
             result[existingIndex].parts[row.part_label] = row.part_text;
+            result[existingIndex].answers[row.part_label] = row.answer;
+            result[existingIndex].answerPlaceholders[row.part_label] =
+              row.placeholder;
           }
         }
         res.status(200).json(result);
