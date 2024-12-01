@@ -19,7 +19,7 @@ const addComment = async (req, res) => {
   if (!topic || !username || !comment) {
     console.log("please help");
     return res.status(400).json({
-      message: "`Please provide all required fields: topic, name and comment`",
+      message: "`Please provide all required fields: topic,name and comment`",
     });
   }
   try {

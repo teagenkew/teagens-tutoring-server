@@ -5,7 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "npx knex migrate:latest",
+    "seed": "npx knex seed:run",
+    "dev": "node --watch index.js"
   },
   "author": "",
   "license": "ISC",
