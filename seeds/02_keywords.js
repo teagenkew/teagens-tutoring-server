@@ -8,9 +8,12 @@ export async function seed(knex) {
 
   // Inserts sample data
   await knex("keywords").insert([
-    { id: 1, keyword: "vector" },
+    { id: 1, keyword: "vectors" },
     { id: 2, keyword: "displacement" },
     { id: 3, keyword: "magnitude" },
-    { id: 4, keyword: "relative motion" },
+    { id: 4, keyword: "relative-motion" },
+    { id: 5, keyword: "ground-speed" },
+    { id: 6, keyword: "angle" },
+    { id: 7, keyword: "projectile-motion" },
   ]);
 }

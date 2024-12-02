@@ -4,4 +4,6 @@ const router = express.Router();
 
 router.route("/questions").get(questionController.listAll);
 
+router.route("/questions/:keyword").get(questionController.listFromKeyword);
+
 export default router;
