@@ -23,7 +23,7 @@ app.get("/test", (req, res) => {
 
 console.log("MYSQLHOST:", process.env.MYSQLHOST);
 console.log("MYSQLUSER:", process.env.MYSQLUSER);
-console.log("MYSQLDATABASE:", process.env.MYSQLDATABASE);
+console.log("MYSQLDATABASE:", process.env.MYSQL_DATABASE);
 console.log("MYSQLPORT:", process.env.MYSQLPORT);
 
 app.listen(PORT, () => {
