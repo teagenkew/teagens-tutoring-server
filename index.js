@@ -21,6 +21,11 @@ app.get("/test", (req, res) => {
   res.send("server is running");
 });
 
+console.log("MYSQLHOST:", process.env.MYSQLHOST);
+console.log("MYSQLUSER:", process.env.MYSQLUSER);
+console.log("MYSQLDATABASE:", process.env.MYSQLDATABASE);
+console.log("MYSQLPORT:", process.env.MYSQLPORT);
+
 app.listen(PORT, () => {
   console.log(`running at http://localhost:${PORT}`);
 });
