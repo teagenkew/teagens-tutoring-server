@@ -17,6 +17,10 @@ app.use("/", keywordRoutes);
 app.use("/", commentRoutes);
 app.use("/", quizzesRoutes);
 
+app.get("/test", (req, res) => {
+  res.send("server is running");
+});
+
 app.listen(PORT, () => {
   console.log(`running at http://localhost:${PORT}`);
 });
