@@ -37,74 +37,92 @@ export async function seed(knex) {
       placeholder: "[N 20 W] or 20 degrees West of North",
     },
     {
-      "id": 5,
-      "question_id": 3,
-      "part_label": "a",
-      "part_text": "Determine the magnitude and direction of the plane's ground speed.",
-      "placeholder": "ex: 260 m/s [S 20 W]"
+      id: 5,
+      question_id: 3,
+      part_label: "a",
+      part_text:
+        "Determine the magnitude and direction of the plane's ground speed.",
+      placeholder: "ex: 260 m/s [S 20 W]",
     },
     {
-      "id": 6,
-      "question_id": 3,
-      "part_label": "b",
-      "part_text": "Find the angle the plane makes with the eastward direction.",
-      "placeholder": "ex: 15 degrees [direction]"
+      id: 6,
+      question_id: 3,
+      part_label: "b",
+      part_text: "Find the angle the plane makes with the eastward direction.",
+      placeholder: "ex: 15 degrees [direction]",
     },
     {
-      "id": 7,
-      "question_id": 4,
-      "part_label": "a",
-      "part_text": "Calculate the horizontal and vertical components of the arrow's velocity.",
-      "placeholder": "ex: 50 m/s [horizontal], 30 m/s [vertical]"
+      id: 7,
+      question_id: 4,
+      part_label: "a",
+      part_text:
+        "Calculate the horizontal and vertical components of the arrow's velocity.",
+      placeholder: "ex: 50 m/s [horizontal], 30 m/s [vertical]",
     },
     {
-      "id": 8,
-      "question_id": 5,
-      "part_label": "a",
-      "part_text": "What is the range of the soccer ball?",
-      "placeholder": "ex: 40.8 m"
+      id: 8,
+      question_id: 5,
+      part_label: "a",
+      part_text: "What is the range of the soccer ball?",
+      placeholder: "ex: 40.8 m",
     },
     {
-      "id": 9,
-      "question_id": 6,
-      "part_label": "a",
-      "part_text": "Determine the total displacement of the car.",
-      "placeholder": "ex: 72.1 km [N 34 W]"
+      id: 9,
+      question_id: 6,
+      part_label: "a",
+      part_text: "Determine the total displacement of the car.",
+      placeholder: "ex: 72.1 km [N 34 W]",
     },
     {
-      "id": 10,
-      "question_id": 7,
-      "part_label": "a",
-      "part_text": "Find the magnitude and direction of the resultant force acting on the object.",
-      "placeholder": "ex: 10 N [N 53 E]"
+      id: 10,
+      question_id: 7,
+      part_label: "a",
+      part_text:
+        "Find the magnitude and direction of the resultant force acting on the object.",
+      placeholder: "ex: 10 N [N 53 E]",
     },
     {
-      "id": 11,
-      "question_id": 8,
-      "part_label": "a",
-      "part_text": "What is the bird's total displacement?",
-      "placeholder": "ex: 12.2 km [N 23 W]"
+      id: 11,
+      question_id: 8,
+      part_label: "a",
+      part_text: "What is the bird's total displacement?",
+      placeholder: "ex: 12.2 km [N 23 W]",
     },
     {
-      "id": 12,
-      "question_id": 9,
-      "part_label": "a",
-      "part_text": "What is the resultant velocity of the swimmer relative to the ground?",
-      "placeholder": "ex: 2.5 m/s [N 37 E]"
+      id: 12,
+      question_id: 9,
+      part_label: "a",
+      part_text:
+        "What is the resultant velocity of the swimmer relative to the ground?",
+      placeholder: "ex: 2.5 m/s [N 37 E]",
     },
     {
-      "id": 13,
-      "question_id": 10,
-      "part_label": "a",
-      "part_text": "Calculate the maximum height the ball reaches.",
-      "placeholder": "ex: 8 m"
+      id: 13,
+      question_id: 10,
+      part_label: "a",
+      part_text: "Calculate the maximum height the ball reaches.",
+      placeholder: "ex: 8 m",
     },
     {
-      "id": 14,
-      "question_id": 10,
-      "part_label": "b",
-      "part_text": "Find the time of flight for the ball.",
-      "placeholder": "ex: 3.5 s"
-    }
+      id: 14,
+      question_id: 10,
+      part_label: "b",
+      part_text: "Find the time of flight for the ball.",
+      placeholder: "ex: 3.5 s",
+    },
+    {
+      id: 15,
+      question_id: 11,
+      part_label: "a",
+      part_text: "Determine the measurement, including uncertainty",
+      placeholder: "ex: 40 mL +/- 2 mL",
+    },
+    {
+      id: 16,
+      question_id: 12,
+      part_label: "a",
+      part_text: "Determine the measurement, including uncertainty",
+      placeholder: "ex: 20.0 +/- 3.00",
+    },
   ]);
 }

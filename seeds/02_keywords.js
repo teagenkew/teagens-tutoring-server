@@ -15,5 +15,8 @@ export async function seed(knex) {
     { id: 5, keyword: "ground-speed" },
     { id: 6, keyword: "angle" },
     { id: 7, keyword: "projectile-motion" },
+    { id: 8, keyword: "uncertainty" },
+    { id: 9, keyword: "measurement" },
+    { id: 10, keyword: "absolute-uncertainty" },
   ]);
 }

@@ -8,6 +8,7 @@ export default {
     password: process.env.MYSQLPASSWORD,
     database: process.env.MYSQL_DATABASE,
     port: process.env.MYSQLPORT || 3306,
+    connection: process.env.MYSQL_URL,
   },
   pool: {
     min: 2,

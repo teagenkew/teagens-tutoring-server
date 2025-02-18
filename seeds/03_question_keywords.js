@@ -24,5 +24,11 @@ export async function seed(knex) {
     { id: 14, question_id: 8, keyword_id: 1 },
     { id: 15, question_id: 9, keyword_id: 1 },
     { id: 16, question_id: 10, keyword_id: 1 },
+    { id: 17, question_id: 11, keyword_id: 8 },
+    { id: 18, question_id: 11, keyword_id: 9 },
+    { id: 19, question_id: 12, keyword_id: 8 },
+    { id: 20, question_id: 12, keyword_id: 9 },
+    { id: 21, question_id: 11, keyword_id: 10 },
+    { id: 22, question_id: 12, keyword_id: 10 },
   ]);
 }

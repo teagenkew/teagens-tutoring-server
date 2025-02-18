@@ -10,11 +10,16 @@ export async function seed(knex) {
   await knex("quizzes").insert([
     {
       id: 1,
+      quiz_name: "uncertainties-intro",
+      unit: "uncertainties",
+    },
+    {
+      id: 2,
       quiz_name: "vectors",
       unit: "kinematics",
     },
     {
-      id: 2,
+      id: 3,
       quiz_name: "projectile-motion",
       unit: "kinematics",
     },
